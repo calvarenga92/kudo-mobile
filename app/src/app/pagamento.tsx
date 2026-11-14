@@ -89,8 +89,8 @@ export default function Pagamento() {
           </Texto>
           {semConexao && (
             <Texto variante="legenda">
-              Não sabemos se o pagamento chegou. Tentar de novo é seguro: a tentativa usa a mesma
-              chave, então o servidor devolve o pedido já criado em vez de cobrar outra vez.
+              Não sabemos se o pagamento chegou. Pode tentar de novo: você não será cobrado
+              duas vezes.
             </Texto>
           )}
           {cotacaoVelha && (
@@ -110,7 +110,7 @@ export default function Pagamento() {
       </Botao>
       {vazio && !semConexao && <Texto variante="legenda">O carrinho está vazio.</Texto>}
 
-      <Texto variante="legenda" selectable>Chave desta tentativa: {finalizar.chaveAtual}</Texto>
+      <Texto variante="legenda" selectable>Demonstração · chave desta tentativa: {finalizar.chaveAtual}</Texto>
       <PainelCenarios />
     </ScrollView>
   );

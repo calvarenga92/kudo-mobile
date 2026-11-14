@@ -16,7 +16,7 @@ export function PainelCenarios() {
 
   return (
     <Cartao estilo={{ gap: espaco(2) }}>
-      <Texto variante="rotulo">Simular rede</Texto>
+      <Texto variante="rotulo">Painel de demonstração · simular rede</Texto>
       {(Object.keys(CENARIOS) as Cenario[]).map((cenario) => {
         const ativo = data?.cenario === cenario;
         return (

@@ -61,7 +61,7 @@ export default function DetalheNft() {
               <View>
                 <Texto variante="rotulo">{e.rotulo}</Texto>
                 <Texto variante="legenda">
-                  {esgotada ? 'Esgotada' : `${e.disponivel} disponíveis · até ${e.limitePorPedido} por pedido`}
+                  {esgotada ? 'Esgotada' : `${e.disponivel} ${e.disponivel === 1 ? 'disponível' : 'disponíveis'} · até ${e.limitePorPedido} por pedido`}
                 </Texto>
               </View>
               <Valor style={{ fontWeight: '700', fontSize: 14 }}>{formatarEth(e.precoEth)}</Valor>
