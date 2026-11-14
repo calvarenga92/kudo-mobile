@@ -4,6 +4,11 @@ Versão React Native (Expo) do [Kurio](https://github.com/calvarenga92/calvareng
 
 **O case: a mesma regra de negócio, duas plataformas.** As regras de dinheiro e de checkout não foram reescritas para o mobile: vivem no pacote [`@calvarenga92/kurio-regras`](./pacotes/regras), publicado no npm e consumido pelo app web e por este app.
 
+## Design e fluxo de UX
+
+- [Telas no Figma](https://www.figma.com/design/uTnOgVhzcVUIGBXPrWHoCf?node-id=0-1)
+- [Fluxo de UX no Figma](https://www.figma.com/design/uTnOgVhzcVUIGBXPrWHoCf?node-id=25-155): compra e pagamento, com os cinco cenários do painel "Simular rede"
+
 ## Estrutura
 
 ```
