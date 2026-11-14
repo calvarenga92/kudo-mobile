@@ -57,12 +57,15 @@ export const menor = (a: string, b: string) => (comparar(a, b) <= 0 ? a : b);
 const CASAS_EXIBICAO_MAX = 6;
 
 /**
- * Exibição com no mínimo 2 casas e só as casas que existem até 6:
- * "2.8" vira "2.80", "0.0165" se mantém, "0.00165" não vira "0.0016".
- * Mostrar a casa que existe mantém o recibo somando na tela.
+ * Exibição no formato brasileiro, com no mínimo 2 casas e só as casas que existem até 6:
+ * "2.8" vira "2,80", "0.0165" vira "0,0165", "0.00165" não vira "0,0016",
+ * "1234.5" vira "1.234,50". Mostrar a casa que existe mantém o recibo somando na tela.
+ * Só a exibição muda: os valores internos continuam em string decimal com ponto.
  */
 export function formatarEth(valor: string): string {
   const texto = paraTexto(paraUnidades(valor), CASAS_EXIBICAO_MAX);
-  const [inteira, decimal = ''] = texto.split('.');
-  return `${inteira}.${decimal.padEnd(2, '0')} ETH`;
+  const negativo = texto.startsWith('-');
+  const [inteira, decimal = ''] = (negativo ? texto.slice(1) : texto).split('.');
+  const milhares = inteira.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return `${negativo ? '-' : ''}${milhares},${decimal.padEnd(2, '0')} ETH`;
 }

@@ -41,10 +41,19 @@ describe('decimal', () => {
     expect(menor('2.29', '0.99')).toBe('0.99');
   });
 
-  it('formatação só na borda: 2 casas mínimas, até 6', () => {
-    expect(formatarEth('2.8')).toBe('2.80 ETH');
-    expect(formatarEth('0.0165')).toBe('0.0165 ETH');
-    expect(formatarEth('0.00165')).toBe('0.00165 ETH');
-    expect(formatarEth('3')).toBe('3.00 ETH');
+  it('formatação só na borda, no formato brasileiro: 2 casas mínimas, até 6', () => {
+    expect(formatarEth('2.8')).toBe('2,80 ETH');
+    expect(formatarEth('1.99')).toBe('1,99 ETH');
+    expect(formatarEth('0.0042')).toBe('0,0042 ETH');
+    expect(formatarEth('0.0165')).toBe('0,0165 ETH');
+    expect(formatarEth('0.00165')).toBe('0,00165 ETH');
+    expect(formatarEth('3')).toBe('3,00 ETH');
+  });
+
+  it('separa milhares com ponto e mantém o sinal', () => {
+    expect(formatarEth('1234.5')).toBe('1.234,50 ETH');
+    expect(formatarEth('1234567.000001')).toBe('1.234.567,000001 ETH');
+    expect(formatarEth('999')).toBe('999,00 ETH');
+    expect(formatarEth('-1234.5')).toBe('-1.234,50 ETH');
   });
 });

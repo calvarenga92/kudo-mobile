@@ -22,7 +22,7 @@ O pacote compila sem os tipos de DOM ou Node (`"lib": ["ES2020"]`, `"types": []`
 
 ### 1. Dinheiro em inteiro de 18 casas
 
-Valores em ETH trafegam como string decimal e toda conta é feita em `bigint` na escala de 18 casas (1 wei). Nenhum passo intermediário corta casas; a formatação acontece uma vez, em `formatarEth`, na borda da interface.
+Valores em ETH trafegam como string decimal e toda conta é feita em `bigint` na escala de 18 casas (1 wei). Nenhum passo intermediário corta casas; a formatação acontece uma vez, em `formatarEth`, na borda da interface, já no formato brasileiro (`1.234,50 ETH`, `0,0042 ETH`).
 
 Por que 18 e não 4: 4 casas é precisão de exibição, não de dinheiro. Cortar a cada operação acumula resto. Antes, `percentual('0.0165', 10)` virava `0.0016` e o total saía `0.0191` em vez de `0.01905`.
 
