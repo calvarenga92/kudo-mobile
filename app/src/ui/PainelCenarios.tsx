@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 import { consultaDiagnostico, useDefinirCenario } from '@/api/consultas';
 import { CENARIOS, type Cenario } from '@/servidor';
 import { Cartao, Texto } from './base';
-import { cores, espaco, raio } from './tema';
+import { espaco, useTema } from './tema';
 
 /**
  * Painel da demonstração: escolhe como a "rede" vai se comportar e mostra quantas
  * cobranças o servidor realmente criou. É esse número que prova a idempotência.
  */
 export function PainelCenarios() {
+  const { cores } = useTema();
   const { data } = useQuery(consultaDiagnostico);
   const definir = useDefinirCenario();
 
@@ -26,7 +27,7 @@ export function PainelCenarios() {
             onPress={() => definir.mutate(cenario)}
             style={{
               flexDirection: 'row', gap: espaco(2), alignItems: 'center',
-              padding: espaco(2), borderRadius: raio,
+              padding: espaco(2), borderRadius: 12,
               backgroundColor: ativo ? cores.surface2 : 'transparent',
             }}
           >

@@ -8,10 +8,11 @@ import { useFinalizarPedido } from '@/hooks/usePedido';
 import { Botao, Cartao, Carregando, Falha, Texto } from '@/ui/base';
 import { PainelCenarios } from '@/ui/PainelCenarios';
 import { ResumoCotacao } from '@/ui/ResumoCotacao';
-import { cores, espaco, raio } from '@/ui/tema';
+import { espaco, tingir, useTema } from '@/ui/tema';
 
 export default function Pagamento() {
   const router = useRouter();
+  const { cores } = useTema();
   const { data: cotacao, isPending, isError, isFetching, refetch } = useQuery(consultaCarrinho);
   const { data: carteiras } = useQuery(consultaCarteiras);
   const finalizar = useFinalizarPedido();
@@ -53,12 +54,20 @@ export default function Pagamento() {
               onPress={() => definirCarteiraId(c.id)}
               disabled={finalizar.isPending || semConexao}
               style={{
-                padding: espaco(3), borderRadius: raio, borderWidth: 1,
+                flexDirection: 'row', alignItems: 'center', gap: espaco(3),
+                padding: ativa ? espaco(3.5) - 1 : espaco(3.5), borderRadius: 16,
+                borderWidth: ativa ? 2 : 1, backgroundColor: cores.surface,
                 borderColor: ativa ? cores.primary : cores.borderSubtle,
               }}
             >
-              <Texto variante="rotulo">{c.apelido} · {c.rede}</Texto>
-              <Texto variante="legenda" numberOfLines={1} ellipsizeMode="middle">{c.endereco}</Texto>
+              <View style={{ flex: 1 }}>
+                <Texto variante="rotulo">{c.apelido} · {c.rede}</Texto>
+                <Texto variante="legenda" numberOfLines={1} ellipsizeMode="middle">{c.endereco}</Texto>
+              </View>
+              <View style={{
+                width: 20, height: 20, borderRadius: 10,
+                borderWidth: ativa ? 6 : 2, borderColor: ativa ? cores.primary : cores.borderStrong,
+              }} />
             </Pressable>
           );
         })}
@@ -67,8 +76,15 @@ export default function Pagamento() {
       <ResumoCotacao valores={cotacao} />
 
       {erro && (
-        <Cartao estilo={{ borderColor: cores.danger, gap: espaco(1) }}>
-          <Texto variante="rotulo" style={{ color: cores.danger }} accessibilityLiveRegion="assertive">
+        <Cartao estilo={{
+          gap: espaco(1), borderWidth: 0,
+          backgroundColor: tingir(semConexao ? '#d97706' : cores.danger, cores.surface, 0.14),
+        }}>
+          <Texto
+            variante="rotulo"
+            style={{ color: semConexao ? (cores.escuro ? '#fbbf24' : '#a86412') : cores.danger }}
+            accessibilityLiveRegion="assertive"
+          >
             {erro.message}
           </Texto>
           {semConexao && (

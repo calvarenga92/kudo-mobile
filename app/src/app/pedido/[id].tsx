@@ -6,11 +6,12 @@ import { consultaPedido } from '@/api/consultas';
 import { Botao, Cartao, Carregando, Falha, Linha, Texto } from '@/ui/base';
 import { PainelCenarios } from '@/ui/PainelCenarios';
 import { ResumoCotacao } from '@/ui/ResumoCotacao';
-import { cores, espaco } from '@/ui/tema';
+import { espaco, tingir, useTema } from '@/ui/tema';
 
 export default function Recibo() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  const { cores } = useTema();
   const { data: pedido, isPending, isError, refetch } = useQuery(consultaPedido(id));
 
   if (isPending) return <Carregando />;
@@ -20,8 +21,17 @@ export default function Recibo() {
 
   return (
     <ScrollView contentContainerStyle={{ padding: espaco(4), gap: espaco(4) }}>
-      <View>
-        <Texto variante="titulo" style={{ color: confirmado ? cores.success : cores.danger }}>
+      <View style={{ alignItems: 'center', gap: espaco(2), paddingVertical: espaco(2) }}>
+        <View style={{
+          width: 72, height: 72, borderRadius: 36, alignItems: 'center', justifyContent: 'center',
+          backgroundColor: confirmado ? cores.success : cores.danger,
+          borderWidth: 10, borderColor: tingir(confirmado ? cores.success : cores.danger, cores.ink, 0.25),
+        }}>
+          <Texto style={{ color: '#ffffff', fontSize: 26, lineHeight: 30, fontWeight: '800' }}>
+            {confirmado ? '\u2713' : '!'}
+          </Texto>
+        </View>
+        <Texto variante="destaque" style={{ textAlign: 'center' }}>
           {confirmado ? 'Pagamento confirmado' : 'Pagamento recusado'}
         </Texto>
         <Texto variante="legenda">Pedido {pedido.id}</Texto>

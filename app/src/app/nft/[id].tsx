@@ -5,12 +5,13 @@ import { useQuery } from '@tanstack/react-query';
 import { formatarEth } from '@calvarenga92/kurio-regras';
 import { ErroApi } from '@/api/cliente';
 import { consultaNft, useAdicionarItem } from '@/api/consultas';
-import { Botao, Carregando, Falha, ImagemNft, Texto } from '@/ui/base';
-import { cores, espaco, raio } from '@/ui/tema';
+import { Botao, Carregando, Falha, ImagemNft, Texto, Valor } from '@/ui/base';
+import { TINTAS, espaco, tingir, useTema } from '@/ui/tema';
 
 export default function DetalheNft() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  const { cores } = useTema();
   const { data: nft, isPending, isError, refetch } = useQuery(consultaNft(id));
   const adicionar = useAdicionarItem();
   const [edicaoId, definirEdicaoId] = useState<string | null>(null);
@@ -25,10 +26,15 @@ export default function DetalheNft() {
   return (
     <ScrollView contentContainerStyle={{ padding: espaco(4), gap: espaco(4) }}>
       <Stack.Screen options={{ title: nft.titulo }} />
-      <ImagemNft chave={nft.imagemUrl} rotulo={nft.titulo} />
-      <View>
-        <Texto variante="titulo">{nft.titulo}</Texto>
-        <Texto variante="legenda">{nft.autor} · {nft.colecao.nome}</Texto>
+      <View style={{ padding: espaco(2), borderRadius: 28, backgroundColor: tingir(TINTAS[nft.imagemUrl], cores.surface, 0.35) }}>
+        <ImagemNft chave={nft.imagemUrl} rotulo={nft.titulo} arredondamento={22} />
+      </View>
+      <View style={{ gap: espaco(1) }}>
+        <Texto variante="legenda" style={{ color: cores.secondary, fontWeight: '700', letterSpacing: 1 }}>
+          {nft.colecao.nome.toUpperCase()}
+        </Texto>
+        <Texto variante="destaque">{nft.titulo}</Texto>
+        <Texto variante="legenda">por {nft.autor}</Texto>
       </View>
       <Texto style={{ color: cores.muted }}>{nft.descricao}</Texto>
 
@@ -45,8 +51,9 @@ export default function DetalheNft() {
               disabled={esgotada}
               onPress={() => { definirEdicaoId(e.id); adicionar.reset(); }}
               style={{
-                flexDirection: 'row', justifyContent: 'space-between', padding: espaco(3),
-                borderRadius: raio, borderWidth: 1,
+                flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+                padding: ativa ? espaco(3.5) - 1 : espaco(3.5), borderRadius: 16,
+                borderWidth: ativa ? 2 : 1, backgroundColor: cores.surface,
                 borderColor: ativa ? cores.primary : cores.borderSubtle,
                 opacity: esgotada ? 0.5 : 1,
               }}
@@ -57,7 +64,7 @@ export default function DetalheNft() {
                   {esgotada ? 'Esgotada' : `${e.disponivel} disponíveis · até ${e.limitePorPedido} por pedido`}
                 </Texto>
               </View>
-              <Texto style={{ color: cores.primary }}>{formatarEth(e.precoEth)}</Texto>
+              <Valor style={{ fontWeight: '700', fontSize: 14 }}>{formatarEth(e.precoEth)}</Valor>
             </Pressable>
           );
         })}
@@ -79,9 +86,12 @@ export default function DetalheNft() {
         <Botao variante="secundario" aoPressionar={() => router.push('/carrinho')}>Ir para o carrinho</Botao>
       )}
 
-      <View style={{ gap: espaco(1) }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: espaco(2) }}>
         {nft.atributos.map((a) => (
-          <Texto key={a.nome} variante="legenda">{a.nome}: <Texto variante="legenda" style={{ color: cores.foreground }}>{a.valor}</Texto></Texto>
+          <View key={a.nome} style={{ flexGrow: 1, minWidth: 96, padding: espaco(3), borderRadius: 14, backgroundColor: cores.surface2 }}>
+            <Texto variante="legenda">{a.nome}</Texto>
+            <Texto variante="rotulo">{a.valor}</Texto>
+          </View>
         ))}
       </View>
     </ScrollView>

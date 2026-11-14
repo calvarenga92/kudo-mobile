@@ -35,6 +35,10 @@ Cada tentativa de pagamento carrega uma `Idempotency-Key` própria. Repetir a me
 
 O gerador de UUID é injetado: `crypto.randomUUID` no web, `expo-crypto` no mobile (o Hermes não tem `crypto.randomUUID`).
 
+## Temas
+
+Três temas sobre os mesmos tokens do web: **gradiente quente** (padrão), **noturna neon** e **elétrica**. As cores vêm de um contexto (`src/ui/tema.ts`), então nenhuma tela sabe qual tema está ativo. O seletor fica no topo do mercado; no web a escolha é salva e um link com `?tema=neon` já abre no tema. Os cartões puxam a cor de cada arte.
+
 ## Demonstração no app
 
 Na tela de pagamento há um painel **Simular rede** e um contador de **cobranças criadas no servidor**:
