@@ -9,9 +9,9 @@ import { ProvedorTema, espaco, fonte, useTema } from '@/ui/tema';
 /** No web a fonte vem do Google Fonts; no app nativo fica a fonte do sistema. */
 function useFonteWeb() {
   useEffect(() => {
-    if (Platform.OS !== 'web' || document.getElementById('fonte-kurio')) return;
+    if (Platform.OS !== 'web' || document.getElementById('fonte-kudo')) return;
     const link = document.createElement('link');
-    link.id = 'fonte-kurio';
+    link.id = 'fonte-kudo';
     link.rel = 'stylesheet';
     link.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap';
     document.head.appendChild(link);
@@ -62,7 +62,7 @@ function Navegacao() {
           headerRight: () => <AtalhoCarrinho />,
         }}
       >
-        <Stack.Screen name="index" options={{ title: 'Kurio' }} />
+        <Stack.Screen name="index" options={{ title: 'Kudo' }} />
         <Stack.Screen name="nft/[id]" options={{ title: 'Detalhe' }} />
         <Stack.Screen name="carrinho" options={{ title: 'Carrinho', headerRight: () => null }} />
         <Stack.Screen name="pagamento" options={{ title: 'Pagamento', headerRight: () => null }} />

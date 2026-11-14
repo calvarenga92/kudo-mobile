@@ -4,7 +4,7 @@ import { multiplicar, percentual, somar, subtrair } from './decimal';
 export const TAXA_REDE: Eth = '0.0042';
 
 export const CUPONS: Record<string, { percentual: number; expirado: boolean }> = {
-  KURIO10: { percentual: 10, expirado: false },
+  KUDO10: { percentual: 10, expirado: false },
   COLECIONADOR20: { percentual: 20, expirado: false },
   EXPIRADO50: { percentual: 50, expirado: true },
 };

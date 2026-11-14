@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosHeaders, type AxiosAdapter, type AxiosResponse } from 'axios';
-import type { CodigoErro, CorpoErro } from '@calvarenga92/kurio-regras';
+import type { CodigoErro, CorpoErro } from '@calvarenga92/kudo-regras';
 import { atender } from '@/servidor';
 
 /** Menor que a latência do cenário "lento": o app desiste antes de o servidor terminar. */

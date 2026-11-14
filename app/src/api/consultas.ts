@@ -1,5 +1,5 @@
 import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import type { Carteira, Cotacao, Nft, NftResumo, Pedido } from '@calvarenga92/kurio-regras';
+import type { Carteira, Cotacao, Nft, NftResumo, Pedido } from '@calvarenga92/kudo-regras';
 import { cliente } from './cliente';
 import type { Cenario } from '@/servidor';
 

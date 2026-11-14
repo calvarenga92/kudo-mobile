@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { randomUUID } from 'expo-crypto';
 import {
   CABECALHO_IDEMPOTENCIA, criarTentativaPagamento, type Pedido,
-} from '@calvarenga92/kurio-regras';
+} from '@calvarenga92/kudo-regras';
 import { ErroApi, cliente } from '@/api/cliente';
 import { chaves } from '@/api/consultas';
 

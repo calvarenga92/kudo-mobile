@@ -1,7 +1,7 @@
 import { FlatList, Pressable, View, useWindowDimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
-import { formatarEth } from '@calvarenga92/kurio-regras';
+import { formatarEth } from '@calvarenga92/kudo-regras';
 import { consultaNfts } from '@/api/consultas';
 import { BlocoTopo, Carregando, Falha, ImagemNft, PrecoPilula, SeletorTema, Texto } from '@/ui/base';
 import { TINTAS, espaco, tingir, useTema } from '@/ui/tema';

@@ -1,7 +1,7 @@
 {
-  "name": "@calvarenga92/kurio-regras",
+  "name": "@calvarenga92/kudo-regras",
   "version": "0.1.0",
-  "description": "Regras de negócio do Kurio compartilhadas entre web e mobile: dinheiro em 18 casas, cotação e checkout idempotente.",
+  "description": "Regras de negócio do Kudo compartilhadas entre web e mobile: dinheiro em 18 casas, cotação e checkout idempotente.",
   "author": "Claudio Alvarenga",
   "license": "MIT",
   "type": "module",

@@ -1,4 +1,4 @@
-import { percentual, type Carteira, type Nft } from '@calvarenga92/kurio-regras';
+import { percentual, type Carteira, type Nft } from '@calvarenga92/kudo-regras';
 
 /** Mesmo catálogo de demonstração do web. Preços em string decimal: nunca passam por float. */
 const COLECOES = [

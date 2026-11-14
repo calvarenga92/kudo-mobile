@@ -2,7 +2,7 @@ import { createContext, createElement, useCallback, useContext, useMemo, useStat
 import { Platform } from 'react-native';
 
 /**
- * Três temas com os mesmos tokens do web (jungle-nft, src/index.css).
+ * Três temas com os mesmos tokens da versão web do Kudo (src/index.css).
  * As telas pedem as cores ao contexto, então trocar de tema não exige
  * nenhuma tela saber qual tema está ativo.
  */
@@ -96,7 +96,7 @@ export const fonteMono = Platform.select({
 export const raio = 14;
 export const espaco = (n: number) => n * 4;
 
-const CHAVE = 'kurio:tema';
+const CHAVE = 'kudo:tema';
 
 function valido(valor: unknown): valor is Tema {
   return typeof valor === 'string' && valor in TEMAS;

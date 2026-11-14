@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ScrollView, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
-import { formatarEth } from '@calvarenga92/kurio-regras';
+import { formatarEth } from '@calvarenga92/kudo-regras';
 import { ErroApi } from '@/api/cliente';
 import {
   consultaCarrinho, useAlterarQuantidade, useAplicarCupom, useRemoverCupom,
@@ -84,7 +84,7 @@ export default function Carrinho() {
             <TextInput
               value={codigo}
               onChangeText={definirCodigo}
-              placeholder="KURIO10"
+              placeholder="KUDO10"
               placeholderTextColor={cores.muted}
               autoCapitalize="characters"
               accessibilityLabel="Código do cupom"

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
-import { formatarEth } from '@calvarenga92/kurio-regras';
+import { formatarEth } from '@calvarenga92/kudo-regras';
 import { ErroApi } from '@/api/cliente';
 import { consultaNft, useAdicionarItem } from '@/api/consultas';
 import { Botao, Carregando, Falha, ImagemNft, Texto, Valor } from '@/ui/base';

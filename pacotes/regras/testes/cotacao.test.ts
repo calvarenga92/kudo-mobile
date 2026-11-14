@@ -8,7 +8,7 @@ const cupom = (codigo: string) => ({ codigo, descricaoDesconto: '' });
 
 describe('cotação', () => {
   it('soma subtotal, desconto e taxa sem corte intermediário', () => {
-    expect(calcularTotais([item('0.0165')], cupom('KURIO10'))).toEqual({
+    expect(calcularTotais([item('0.0165')], cupom('KUDO10'))).toEqual({
       subtotalEth: '0.0165', descontoEth: '0.00165', taxaRedeEth: '0.0042', totalEth: '0.01905',
     });
   });
@@ -30,6 +30,6 @@ describe('cotação', () => {
     expect(versaoDaCotacao([item('1')], null)).toBe(base);
     expect(versaoDaCotacao([item('1.01')], null)).not.toBe(base);
     expect(versaoDaCotacao([item('1', 2)], null)).not.toBe(base);
-    expect(versaoDaCotacao([item('1')], cupom('KURIO10'))).not.toBe(base);
+    expect(versaoDaCotacao([item('1')], cupom('KUDO10'))).not.toBe(base);
   });
 });

@@ -1,8 +1,8 @@
-# Kurio mobile
+# Kudo mobile
 
-Versão React Native (Expo) do [Kurio](https://github.com/calvarenga92/calvarenga-jungle-nft), marketplace de arte digital.
+Kudo é um projeto pessoal de Claudio Alvarenga: um marketplace de arte digital com pagamento simulado (nenhum valor real é cobrado). Este repositório é a versão React Native (Expo); a versão web está [neste repositório](https://github.com/calvarenga92/calvarenga-jungle-nft).
 
-**O case: a mesma regra de negócio, duas plataformas.** As regras de dinheiro e de checkout não foram reescritas para o mobile: vivem no pacote [`@calvarenga92/kurio-regras`](./pacotes/regras), publicado no npm e consumido pelo app web e por este app.
+**A ideia: a mesma regra de negócio, duas plataformas.** As regras de dinheiro e de checkout não foram reescritas para o mobile: vivem no pacote [`@calvarenga92/kudo-regras`](./pacotes/regras), que este app consome direto do workspace e que foi feito para ser publicado no npm e usado também pelo app web.
 
 ## Design e fluxo de UX
 
@@ -67,6 +67,6 @@ npx expo export --platform web --output-dir dist   # versão web estática
 
 ## Decisões de escopo
 
-- **Sem login no mobile:** o app usa uma conta de demonstração. O foco do case é checkout e dinheiro; a sessão do web depende de `sessionStorage` e precisaria de `expo-secure-store`.
+- **Sem login no mobile:** o app usa uma conta de demonstração. O foco do projeto é checkout e dinheiro; a sessão do web depende de `sessionStorage` e precisaria de `expo-secure-store`.
 - **Estado em memória:** recarregar o app zera o servidor simulado, o que deixa a demonstração sempre reproduzível.
 - **Sem tempo real:** o socket de eventos do web não foi portado.

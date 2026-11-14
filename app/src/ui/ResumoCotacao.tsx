@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { formatarEth, type Cotacao, type Pedido } from '@calvarenga92/kurio-regras';
+import { formatarEth, type Cotacao, type Pedido } from '@calvarenga92/kudo-regras';
 import { Cartao, Linha } from './base';
 import { espaco, useTema } from './tema';
 

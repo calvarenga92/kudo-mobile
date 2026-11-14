@@ -1,7 +1,7 @@
 import { ScrollView, View } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useQuery } from '@tanstack/react-query';
-import { formatarEth } from '@calvarenga92/kurio-regras';
+import { formatarEth } from '@calvarenga92/kudo-regras';
 import { consultaPedido } from '@/api/consultas';
 import { Botao, Cartao, Carregando, Falha, Linha, Texto } from '@/ui/base';
 import { PainelCenarios } from '@/ui/PainelCenarios';

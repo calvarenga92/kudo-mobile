@@ -8,7 +8,7 @@ import {
   subtotalDoItem, versaoDaCotacao,
   type Carrinho, type CodigoErro, type Cotacao, type ItemCarrinho, type ItemPedido, type Nft,
   type NftResumo, type Pedido, type RegistroIdempotencia,
-} from '@calvarenga92/kurio-regras';
+} from '@calvarenga92/kudo-regras';
 import { CARTEIRAS, criarNfts } from './dados';
 
 export const CENARIOS = {
