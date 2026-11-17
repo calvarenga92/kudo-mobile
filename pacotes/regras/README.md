@@ -6,5 +6,6 @@ Regras de negócio do Kudo compartilhadas entre o app web (React + Vite) e o app
 - `cotacao`: `calcularTotais`, `versaoDaCotacao`, `CUPONS`, `TAXA_REDE`.
 - `idempotencia`: `criarTentativaPagamento` (cliente) e `criarGuardaIdempotente` (servidor).
 - `tipos`: contratos da API.
+- `eventos`: contrato do tempo real (`nft.updated`, `order.updated`, `session.identify`), com id e versão em todo evento.
 
-TypeScript puro, sem dependências e sem APIs de plataforma. Veja o [README do monorepo](https://github.com/calvarenga92/kurio-mobile#readme) para o porquê de cada decisão.
+TypeScript puro, sem dependências e sem APIs de plataforma. Veja o [README do monorepo](https://github.com/calvarenga92/kudo-mobile#readme) para o porquê de cada decisão.
