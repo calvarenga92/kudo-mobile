@@ -1,6 +1,6 @@
 # Kudo mobile
 
-Kudo é um projeto pessoal de Claudio Alvarenga: um marketplace de arte digital com pagamento simulado (nenhum valor real é cobrado). Este repositório é a versão React Native (Expo); a versão web está [neste repositório](https://github.com/calvarenga92/calvarenga-jungle-nft).
+Kudo é um projeto pessoal de Claudio Alvarenga: um marketplace de arte digital com pagamento simulado (nenhum valor real é cobrado). Este repositório é a versão React Native (Expo); a versão web está [neste repositório](https://github.com/calvarenga92/kudo).
 
 **A ideia: a mesma regra de negócio, duas plataformas.** As regras de dinheiro e de checkout não foram reescritas para o mobile: vivem no pacote [`@calvarenga92/kudo-regras`](./pacotes/regras), que este app consome direto do workspace e que foi feito para ser publicado no npm e usado também pelo app web.
 
