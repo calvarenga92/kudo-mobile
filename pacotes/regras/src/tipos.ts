@@ -172,5 +172,7 @@ export type CodigoErro =
   | 'COTACAO_DESATUALIZADA'
   | 'CHAVE_IDEMPOTENCIA_CONFLITANTE'
   | 'FALHA_TRANSITORIA'
+  /** 429: tentativas demais (ex.: login). A resposta traz Retry-After em segundos. */
+  | 'MUITAS_TENTATIVAS'
   | 'SEM_CONEXAO'
   | 'ERRO_DESCONHECIDO';
